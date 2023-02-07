@@ -1,3 +1,11 @@
 #!/bin/bash
 
-echo "The arguments are [$@]"
+argv=("$@")
+argc=${#argv[@]} 
+
+echo -n "The arguments are ["
+for ((i = 0; i != $argc - 1; i++)); do 
+    echo -n ${argv[${i}]}", "
+done
+echo -n ${argv[${i}]}
+echo "]"
