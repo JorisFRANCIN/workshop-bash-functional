@@ -1,5 +1,6 @@
 #!/bin/bash
 
 IFS=' ' read -r -a array <<< $(./do_op $1)
-echo "expected: ${array[-1]}"
-
+if [[ ${array[-1]} != $2 ]]; then
+    echo "expected: ${array[-1]}"
+fi
