@@ -4,8 +4,12 @@ argv=("$@")
 argc=${#argv[@]} 
 
 echo -n "The arguments are ["
-for ((i = 0; i != $argc - 1; i++)); do 
-    echo -n ${argv[${i}]}", "
+for ((i = 0; i != $argc - 1; i++)); do
+    if [[ $1  =~ ^[0-9]+$ ]]; then
+        echo -n ${argv[${i}]}", "
+    else
+        echo -n "\"${argv[${i}]}\"", ""
+    fi
 done
 echo -n ${argv[${i}]}
 echo "]"

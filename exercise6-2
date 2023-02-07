@@ -1,5 +1,5 @@
 #!/bin/bash
 
-IFS=', ' read -r -a array <<< $(./do_op $1)
+IFS=' ' read -r -a array <<< $(./do_op $1)
 echo "expected: ${array[-1]}"
 
