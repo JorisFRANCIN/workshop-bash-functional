@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ $# != 1 ]]; then
+    exit 0
+fi
+
+test () {
+    IFS=' ' read -r -a array <<< $(./do_op $1)
+    if [[ ${array[-1]} != $2 ]]; then
+        echo "TEST NOT PASSED"
+    else
+        echo "TEST PASSED"
+    fi
+}
+
+while read -r line || [ -n "$line" ]; do
+    IFS='"' read -r -a array <<< $line
+    echo -n "(${array[1]}): "
+    test "${array[1]}" ${array[2]:1}
+done < $1
