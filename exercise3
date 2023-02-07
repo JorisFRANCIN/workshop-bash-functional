@@ -1,0 +1,10 @@
+#!/bin/bash
+
+argv=("$@")
+argc=${#argv[@]} 
+
+if [[ $argc == 0 ]]; then
+    echo "no arguments"
+else
+    echo "arguments"
+fi
