@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IFS=', ' read -r -a array <<< $(./do_op $1)
+echo "The result of the do-op is ${array[-1]}"
+
